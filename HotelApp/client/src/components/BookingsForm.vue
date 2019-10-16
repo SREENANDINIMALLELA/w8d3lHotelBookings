@@ -1,15 +1,14 @@
 <template lang="html">
-  <form id="booking-form" v-on:submit="handleSubmit" method="post">
-    <div id = "booking-form">
+  <form id="booking-form" v-on:submit="handleSubmit" v-on:action="handleSubmit" method="post">
+    <div class="bookingForm"id = "booking-form">
       <label for="name">Name</label>
       <input type="text" id="name"  v-model="name" required/>
 
       <label for="email">Email</label>
-      <input type="text" id="email"  v-model="email" required/>
+      <input type="text" id="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" v-model="email" required/>
 
       <label for="check_status">Check-Status</label>
       <input type="checkbox"  id="check_status" v-model="check_status">
-
       <input type="submit" >
     </div>
   </form>
@@ -51,4 +50,23 @@ export default {
 </script>
 
 <style lang="css" scoped>
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type=submit], select{
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 </style>
